@@ -37,12 +37,16 @@ apt-get clean
 log_info ">>> 环境准备完毕，开始执行安装任务！"
 
 # 变量定义
-GITEE_USER="ljhHui"
-GITEE_REPO="jzzn_update_sentinel"
-BRANCH="master"
+GITHUB_USER="JzCharizard"
+GITHUB_REPO="jzzn_update_sentinel"
+BRANCH="main"
 RELEASE_TAG="v1.0.0"
-BASE_URL="https://gitee.com/$GITEE_USER/$GITEE_REPO/raw/$BRANCH"
-RELEASE_URL="https://gitee.com/$GITEE_USER/$GITEE_REPO/releases/download/$RELEASE_TAG"
+
+# GitHub Raw 文件直连地址 (用于读取脚本等单文件)
+BASE_URL="https://raw.githubusercontent.com/$GITHUB_USER/$GITHUB_REPO/$BRANCH"
+
+# GitHub Release 附件下载地址 (用于下载打包好的压缩包或二进制文件)
+RELEASE_URL="https://github.com/$GITHUB_USER/$GITHUB_REPO/releases/download/$RELEASE_TAG"
 
 # 自动清理临时目录
 WORK_DIR=$(mktemp -d /tmp/deploy_XXXXXX)
