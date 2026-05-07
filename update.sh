@@ -76,7 +76,7 @@ log_info "正在通过 apt 安装 p7zip-full 及相关依赖..."
 # 更新源并安装依赖
 apt-get update -qq 
 apt-get --fix-broken install -y
-apt-get install -y jq libjq1 libonig5
+apt-get install -y jq libjq1 libonig5 rsyslog-gnutls
 if ! apt-get install -y p7zip-full  2>&1; then
     log_info "apt 安装失败，尝试修复依赖..."
     apt-get install -f -y 
